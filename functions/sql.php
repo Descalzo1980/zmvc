@@ -6,6 +6,13 @@ function sql_connect()
     mysql_select_db('test');
 }
 
+function sql_exec($sql)
+{
+    sql_connect();
+    mysql_query($sql);
+
+}
+
 function sql_query($sql)
 {
     sql_connect();

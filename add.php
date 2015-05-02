@@ -1,5 +1,8 @@
 <?php
 
+require __DIR__ . '/models/photo.php';
+require __DIR__ . '/functions/file.php';
+
 if (!empty($_POST))
 {
     $data = [];
@@ -9,10 +12,14 @@ if (!empty($_POST))
     if (!empty($_FILES)){
         $res = File_upload('image');
         if (false !== $res){
-            $data['image'] = res;
+            $data['image'] = $res;
         }
     }
-    var_dump($data);die;
+    if (isset($data['title']) && isset($data['image'])){
+        Photo_insert($data);
+        header('Location: /');
+        die;
+    }
 }
 
 include __DIR__ . '/view/add.php'; // подключаем вьюху
