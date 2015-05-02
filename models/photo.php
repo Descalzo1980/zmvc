@@ -1,16 +1,17 @@
 <?php
 
+require_once __DIR__ . '/../functions/sql.php';
+
 function Photos_getAll()
 {
-    mysql_connect('localhost', 'root', '');
-    mysql_select_db('test');
 
+    sql_connect();
     $sql = 'SELECT * FROM images';
-    $res = mysql_query($sql);
+    return sql_query($sql);
 
-    $ret = [];
-    while (false !== $row = mysql_fetch_assoc($res)){
-        $ret[] = $row;
-    }
-    return $ret;
+}
+
+function Photo_insert($data)
+{
+
 }

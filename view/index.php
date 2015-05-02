@@ -6,10 +6,18 @@
 </head>
 <body>
 
-<?php foreach ($items as $item): ?>
-    <?php echo $item['title']; ?>
-<?php endforeach; ?>
+<table border="1px">
+    <tr>
+        <th>Name</th>
+    </tr>
+    <tr>
+       <?php foreach ($items as $item): ?>
+            <td><?php echo $item['title']; ?></td>
+           </tr>
+        <?php endforeach; ?>
+</table>
 
+<a href="/add.php">Добавить фото</a>
 </body>
 </html>
 
